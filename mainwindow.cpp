@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
-#include <iostream>
+#include <random>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -59,8 +59,8 @@ void MainWindow::calc() {
     int inside = 0;
 
     for (int i = 0; i < n; i++) {
-        double x = -3.0 + ((double)arc4random() / UINT32_MAX) * (0.5 - -3.0);
-        double y = -1.0 + ((double)arc4random() / UINT32_MAX) * (5.0 - -1.0);
+        double x = -3.0 + ((double)rand() / RAND_MAX) * (0.5 - -3.0);
+        double y = -1.0 + ((double)rand() / RAND_MAX) * (5.0 - -1.0);
 
         double xy1 = 5.0*sin(0.7*x+2.0);
         double xy2 = (9.0*(x+2.0)*(x+2.0)-7.0)/10.0;
