@@ -58,7 +58,7 @@ void MainWindow::calc() {
 
     int inside = 0;
 
-    int every10000 = n / 50000;
+    int every10000 = n / 100000;
 
     for (int i = 0; i < n; i++) {
         double x = -3.0 + ((double)rand() / RAND_MAX) * (0.5 - -3.0);
