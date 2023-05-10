@@ -58,6 +58,8 @@ void MainWindow::calc() {
 
     int inside = 0;
 
+    int every10000 = n / 50000;
+
     for (int i = 0; i < n; i++) {
         double x = -3.0 + ((double)rand() / RAND_MAX) * (0.5 - -3.0);
         double y = -1.0 + ((double)rand() / RAND_MAX) * (5.0 - -1.0);
@@ -71,10 +73,14 @@ void MainWindow::calc() {
         bool ins = underY1 && aboveY2;
 
         if (ins) {
-            y2->append(x, y);
+            if (n < 500000 || (i % every10000 == 0)) {
+                y2->append(x, y);
+            }
             inside++;
         } else {
-            y1->append(x, y);
+            if (n < 500000 || (i % every10000 == 0)) {
+                y1->append(x, y);
+            }
         }
     }
 
