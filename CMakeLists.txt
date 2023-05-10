@@ -69,13 +69,6 @@ install(TARGETS example
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
 )
 
-qt_generate_deploy_app_script(
-    TARGET example
-    FILENAME_VARIABLE deploy_script
-    NO_UNSUPPORTED_PLATFORM_ERROR
-)
-install(SCRIPT ${deploy_script})
-
 if(QT_VERSION_MAJOR EQUAL 6)
     qt_finalize_executable(example)
 endif()
