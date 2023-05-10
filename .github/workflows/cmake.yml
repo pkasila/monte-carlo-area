@@ -47,12 +47,8 @@ jobs:
       shell: cmd
       run: 'windeployqt "${{github.workspace}}/inst/example.exe"'
 
-    - name: Pack
-      working-directory: ${{github.workspace}}/inst
-      run: Compress-Archive . binaries.zip
-
     - name: Upload
       uses: actions/upload-artifact@v1
       with:
-        path: ${{github.workspace}}/inst/binaries.zip
+        path: ${{github.workspace}}/inst
         name: binary_win
