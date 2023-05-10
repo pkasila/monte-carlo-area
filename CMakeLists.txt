@@ -49,7 +49,11 @@ else()
     qt5_create_translation(QM_FILES ${CMAKE_SOURCE_DIR} ${TS_FILES})
 endif()
 
-target_link_libraries(example PRIVATE Qt${QT_VERSION_MAJOR}::Widgets Qt${QT_VERSION_MAJOR}::Charts)
+if(APPLE)
+    target_link_libraries(example PRIVATE Qt${QT_VERSION_MAJOR}::Widgets Qt${QT_VERSION_MAJOR}::Charts)
+else()
+    target_link_libraries(example PRIVATE Qt${QT_VERSION_MAJOR}::Widgets Qt${QT_VERSION_MAJOR}::Charts -static)
+endif()
 
 set_target_properties(example PROPERTIES
     MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com
