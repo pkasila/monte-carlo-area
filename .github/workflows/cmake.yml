@@ -44,7 +44,8 @@ jobs:
       run: cmake --install ${{github.workspace}}/build --prefix ${{github.workspace}}/inst --strip
 
     - name: Deploy
-      run: '"$Qt6_DIR/bin/windeployqt.exe" ${{github.workspace}}/inst/example.exe'
+      shell: cmd
+      run: 'windeployqt "${{github.workspace}}/inst/example.exe"'
 
     - name: Pack
       working-directory: ${{github.workspace}}/inst
